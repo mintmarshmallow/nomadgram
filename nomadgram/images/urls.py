@@ -1,21 +1,27 @@
 from django.urls import path
 from . import views
 
-app_name = 'images'
+app_name = 'feed'
 urlpatterns = [
     path(
-        'all/',
-        view=views.ListAllImage.as_view(),
-        name='all_images'
+        '',
+        view=views.Feed.as_view(),
+        name='feed'
     ),
     path(
-        'comments/',
-        view=views.ListAllComments.as_view(),
-        name='all_comments'
+        '<int:image_id>/likes/',
+        view=views.LikeImage.as_view(),
+        name='like_image'
     ),
     path(
-        'likes/',
-        view=views.ListAllLikes.as_view(),
-        name='all_likes'
+        '<int:image_id>/comments/',
+        view=views.CommentOnImage.as_view(),
+        name='comment_image'
     ),
+    path(
+        'comments/<int:comment_id>/',
+        view=views.Comment.as_view(),
+        name='comment'
+    )
 ]
+
