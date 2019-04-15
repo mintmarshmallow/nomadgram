@@ -4,6 +4,11 @@ from . import views
 app_name = 'feed'
 urlpatterns = [
     path(
+        '<int:image_id>/',
+        view=views.ImageDetail.as_view(),
+        name='feed'
+    ),
+    path(
         '',
         view=views.Feed.as_view(),
         name='feed'
@@ -14,14 +19,32 @@ urlpatterns = [
         name='like_image'
     ),
     path(
+        '<int:image_id>/unlikes/',
+        view=views.UnLikeImage.as_view(),
+        name='like_image'
+    ),
+    path(
         '<int:image_id>/comments/',
         view=views.CommentOnImage.as_view(),
         name='comment_image'
     ),
     path(
+        '<int:image_id>/comments/<int:comment_id>/',
+        view=views.ModerateComments.as_view(),
+        name='mod'
+    ),
+    path(
         'comments/<int:comment_id>/',
         view=views.Comment.as_view(),
         name='comment'
-    )
+    ),
+    path(
+        'search/',
+        view=views.Search.as_view(),
+        name='search'
+    ),
+    
 ]
+
+
 
