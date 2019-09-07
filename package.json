@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/mintmarshmallow/nomadgram/issues"
   },
-  "homepage": "https://github.com/mintmarshmallow/nomadgram#readme"
+  "homepage": "https://github.com/mintmarshmallow/nomadgram#readme",
+  "dependencies": {
+    "node-sass": "^4.12.0"
+  }
 }
